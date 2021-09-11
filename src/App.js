@@ -5,10 +5,14 @@ import './App.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
+ //   this.addNewTask = this.addNewTask.bind(this)
     this.state = {
       tasks: ['add', 'commit', 'push']
     }
   }
+  // addNewTask() {
+  //   alert('add new task')
+  // }
 
   render() {
     return (
@@ -18,16 +22,10 @@ class App extends React.Component {
             <h1>To Do List</h1>
           </header>
           <button>Give me something to do</button>
-          {/* <ol>
-            <li>item 1</li>
-            <li>item 2</li>
-            <li>item 3</li>
-          </ol> */}
+
           <TaskList tasks={this.state.tasks}/>
-          <form>
-            <input type='text'/>
-            <button>Add Task</button>
-          </form>
+          <AddTaskForm/>
+
         </div>
       </div>
     );
@@ -52,6 +50,27 @@ class Task extends React.Component {
       <li>
         {this.props.taskName}
       </li>
+    )
+  }
+}
+
+class AddTaskForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.addNewTask = this.addNewTask.bind(this)
+  }
+  addNewTask(e) {
+    e.preventDefault();
+    let newTask = e.target.elements.newtask.value
+    console.log(newTask)
+    alert('add new task')
+  }
+  render() {
+    return (
+      <form onSubmit={this.addNewTask}>
+      <input type='text' name='newtask'/>
+      <input type='submit' value='Submit'/>
+    </form>
     )
   }
 }
