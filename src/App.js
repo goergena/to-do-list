@@ -5,14 +5,14 @@ import './App.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
- //   this.addNewTask = this.addNewTask.bind(this)
+   this.addNewTask = this.addNewTask.bind(this)
     this.state = {
       tasks: ['add', 'commit', 'push']
     }
   }
-  // addNewTask() {
-  //   alert('add new task')
-  // }
+  addNewTask() {
+    alert('add new task')
+  }
 
   render() {
     return (
