@@ -5,13 +5,15 @@ import './App.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
-   this.addNewTask = this.addNewTask.bind(this)
+    this.addNewTask = this.addNewTask.bind(this)
     this.state = {
       tasks: ['add', 'commit', 'push']
     }
   }
-  addNewTask() {
-    alert('add new task')
+  addNewTask(userText) {
+    this.setState((prevState)=> ({
+      tasks: prevState.tasks.concat([userText])
+    }))
   }
 
   render() {
@@ -24,7 +26,7 @@ class App extends React.Component {
           <button>Give me something to do</button>
 
           <TaskList tasks={this.state.tasks}/>
-          <AddTaskForm/>
+          <AddTaskForm addNewTask={this.addNewTask}/>
 
         </div>
       </div>
@@ -40,7 +42,6 @@ const TaskList = (props) => {
       }
     </ol>
     )
-  
 }
 
 const Task = (props) => {
@@ -59,9 +60,8 @@ class AddTaskForm extends React.Component {
   }
   addNewTask(e) {
     e.preventDefault();
-    let newTask = e.target.elements.newtask.value
-    console.log(newTask)
-    alert('add new task')
+    let newTask = e.target.elements.newtask.value.trim();
+    this.props.addNewTask(newTask)
   }
   render() {
     return (
