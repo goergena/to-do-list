@@ -17,6 +17,12 @@
 
 
 .list-body {
-  height: 50vh;
-  overflow-y: scroll;
+  max-height: 50vh;
+  /* overflow-y: scroll; */
+}
+
+.submit-btn {
+  height: 20px;
+  color: navy;
+  background-color: antiquewhite;
 }

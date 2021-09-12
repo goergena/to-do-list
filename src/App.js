@@ -67,7 +67,7 @@ class AddTaskForm extends React.Component {
     return (
       <form onSubmit={this.addNewTask}>
       <input type='text' name='newtask'/>
-      <input type='submit' value='Submit'/>
+      <input type='submit' value='Submit' className='submit-btn'/>
     </form>
     )
   }
