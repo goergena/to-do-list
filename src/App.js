@@ -36,7 +36,7 @@ class App extends React.Component {
 
 const TaskList = (props) => {
     return (
-      <ol>
+      <ol className='list-body'>
       {
         props.tasks.map((task, i) => <Task key={i} taskName={task}/>)
       }
