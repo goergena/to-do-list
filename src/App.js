@@ -32,27 +32,25 @@ class App extends React.Component {
   }
 }
 
-class TaskList extends React.Component {
-  render() {
+const TaskList = (props) => {
     return (
       <ol>
       {
-          this.props.tasks.map((task, i) => <Task key={i} taskName={task}/>)
-        }
+        props.tasks.map((task, i) => <Task key={i} taskName={task}/>)
+      }
     </ol>
     )
-  }
+  
 }
 
-class Task extends React.Component {
-  render() {
-    return (
-      <li>
-        {this.props.taskName}
-      </li>
-    )
-  }
+const Task = (props) => {
+  return (
+    <li>
+      {props.taskName}
+    </li>
+  )
 }
+
 
 class AddTaskForm extends React.Component {
   constructor(props) {
