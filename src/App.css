@@ -26,3 +26,13 @@
   color: navy;
   background-color: antiquewhite;
 }
+
+.strike {
+  text-decoration: line-through;
+}
+
+
+
+.task:hover {
+  cursor: pointer
+}

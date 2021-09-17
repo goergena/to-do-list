@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 
@@ -60,9 +60,10 @@ const TaskList = (props) => {
 }
 
 const Task = (props) => {
+  const [strike, updateStrike] = useState(false)
   
   return (
-    <li>
+    <li onClick={()=>{updateStrike(!strike)}} className={strike ? "strike task" : "task"}>
       {props.taskName}
     </li>
   )
