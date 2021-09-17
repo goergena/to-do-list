@@ -6,6 +6,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.addNewTask = this.addNewTask.bind(this)
+    this.handlePick = this.handlePick.bind(this);
+    this.removeAllTasks = this.removeAllTasks.bind(this);
     this.state = {
       tasks: ['add', 'commit', 'push']
     }
@@ -16,6 +18,17 @@ class App extends React.Component {
     }))
   }
 
+  handlePick() {
+    const randomNum = Math.floor(Math.random() * this.state.tasks.length); 
+    const option = this.state.tasks[randomNum]
+    alert(option)
+  }
+
+  removeAllTasks() {
+    this.setState(()=> ({tasks: []}))
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -23,7 +36,9 @@ class App extends React.Component {
           <header>
             <h1>To Do List</h1>
           </header>
-          <button>Give me something to do</button>
+          <button onClick={this.handlePick}>Give me something to do</button>
+
+          <button onClick={this.removeAllTasks}>Clear task list</button>
 
           <TaskList tasks={this.state.tasks}/>
           <AddTaskForm addNewTask={this.addNewTask}/>
@@ -45,6 +60,7 @@ const TaskList = (props) => {
 }
 
 const Task = (props) => {
+  
   return (
     <li>
       {props.taskName}
