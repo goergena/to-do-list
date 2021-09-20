@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
+// import './App.css';
 import TaskList from './components/TaskList';
 import AddTaskForm from './components/AddTaskForm';
-
 
 class App extends React.Component {
   constructor(props) {
@@ -50,15 +49,5 @@ class App extends React.Component {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 export default App;
