@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
+import TaskList from './components/TaskList';
+import AddTaskForm from './components/AddTaskForm';
 
 
 class App extends React.Component {
@@ -49,46 +51,11 @@ class App extends React.Component {
   }
 }
 
-const TaskList = (props) => {
-    return (
-      <ol className='list-body'>
-      {
-        props.tasks.map((task, i) => <Task key={i} taskName={task}/>)
-      }
-    </ol>
-    )
-}
-
-const Task = (props) => {
-  const [strike, updateStrike] = useState(false)
-  
-  return (
-    <li onClick={()=>{updateStrike(!strike)}} className={strike ? "strike task" : "task"}>
-      {props.taskName}
-    </li>
-  )
-}
 
 
-class AddTaskForm extends React.Component {
-  constructor(props) {
-    super(props)
-    this.addNewTask = this.addNewTask.bind(this)
-  }
-  addNewTask(e) {
-    e.preventDefault();
-    let newTask = e.target.elements.newtask.value.trim();
-    this.props.addNewTask(newTask)
-  }
-  render() {
-    return (
-      <form onSubmit={this.addNewTask}>
-      <input type='text' name='newtask'/>
-      <input type='submit' value='Submit' className='submit-btn'/>
-    </form>
-    )
-  }
-}
+
+
+
 
 
 
