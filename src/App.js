@@ -1,5 +1,6 @@
 import React from 'react';
 // import './App.css';
+import Header from './components/Header'
 import TaskList from './components/TaskList';
 import AddTaskForm from './components/AddTaskForm';
 
@@ -34,9 +35,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="App-body">
-          <header>
-            <h1>To Do List</h1>
-          </header>
+          <Header subtitle={'Find what to do next!'}/>
           <button onClick={this.handlePick}>Give me something to do</button>
 
           <button onClick={this.removeAllTasks}>Clear task list</button>
