@@ -34,15 +34,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="App-body">
-          <Header subtitle={'Find what to do next!'}/>
-          <button onClick={this.handlePick}>Give me something to do</button>
-
+        <Header subtitle={'Find what to do next!'}/>
+        <div className="container">
+          <button 
+            className="big-button" 
+            onClick={this.handlePick}>
+              Give me something to do</button>
           <button onClick={this.removeAllTasks}>Clear task list</button>
-
           <TaskList tasks={this.state.tasks}/>
           <AddTaskForm addNewTask={this.addNewTask}/>
-
         </div>
       </div>
     );
