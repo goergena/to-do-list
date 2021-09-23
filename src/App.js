@@ -3,6 +3,7 @@ import React from 'react';
 import Header from './components/Header'
 import TaskList from './components/TaskList';
 import AddTaskForm from './components/AddTaskForm';
+import TaskModal from './components/TaskModal';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +12,8 @@ class App extends React.Component {
     this.handlePick = this.handlePick.bind(this);
     this.removeAllTasks = this.removeAllTasks.bind(this);
     this.state = {
-      tasks: ['add', 'commit', 'push']
+      tasks: ['add', 'commit', 'push'],
+      selectedTask: undefined
     }
   }
   addNewTask(userText) {
@@ -23,7 +25,8 @@ class App extends React.Component {
   handlePick() {
     const randomNum = Math.floor(Math.random() * this.state.tasks.length); 
     const option = this.state.tasks[randomNum]
-    alert(option)
+    this.setState(()=> ( {selectedTask: option} ))
+
   }
 
   removeAllTasks() {
@@ -43,7 +46,9 @@ class App extends React.Component {
           <button onClick={this.removeAllTasks}>Clear task list</button>
           <TaskList tasks={this.state.tasks}/>
           <AddTaskForm addNewTask={this.addNewTask}/>
+          <TaskModal selectedTask={this.state.selectedTask}/>
         </div>
+
       </div>
     );
   }
