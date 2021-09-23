@@ -11,6 +11,7 @@ class App extends React.Component {
     this.addNewTask = this.addNewTask.bind(this)
     this.handlePick = this.handlePick.bind(this);
     this.removeAllTasks = this.removeAllTasks.bind(this);
+    this.handleClearSelectedTask = this.handleClearSelectedTask.bind(this);
     this.state = {
       tasks: ['add', 'commit', 'push'],
       selectedTask: undefined
@@ -27,6 +28,10 @@ class App extends React.Component {
     const option = this.state.tasks[randomNum]
     this.setState(()=> ( {selectedTask: option} ))
 
+  }
+
+  handleClearSelectedTask() {
+    this.setState(()=> ({selectedTask: undefined}))
   }
 
   removeAllTasks() {
@@ -46,7 +51,9 @@ class App extends React.Component {
           <button onClick={this.removeAllTasks}>Clear task list</button>
           <TaskList tasks={this.state.tasks}/>
           <AddTaskForm addNewTask={this.addNewTask}/>
-          <TaskModal selectedTask={this.state.selectedTask}/>
+          <TaskModal 
+            selectedTask={this.state.selectedTask}
+            handleClearSelectedTask={this.handleClearSelectedTask}/>
         </div>
 
       </div>
