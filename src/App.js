@@ -44,16 +44,19 @@ class App extends React.Component {
       <div className="App">
         <Header subtitle={'Find what to do next!'}/>
         <div className="container">
-          <button 
+        <button 
             className="big-button" 
             onClick={this.handlePick}>
               Give me something to do</button>
+          <div className="widget-header">
+          <h3>Tasks</h3>
           <button 
           className="button button--link"
           onClick={this.removeAllTasks}
           >
             Clear task list
           </button>
+          </div>
           <TaskList tasks={this.state.tasks}/>
           <AddTaskForm addNewTask={this.addNewTask}/>
           <TaskModal 
