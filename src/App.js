@@ -48,7 +48,12 @@ class App extends React.Component {
             className="big-button" 
             onClick={this.handlePick}>
               Give me something to do</button>
-          <button onClick={this.removeAllTasks}>Clear task list</button>
+          <button 
+          className="button button--link"
+          onClick={this.removeAllTasks}
+          >
+            Clear task list
+          </button>
           <TaskList tasks={this.state.tasks}/>
           <AddTaskForm addNewTask={this.addNewTask}/>
           <TaskModal 
