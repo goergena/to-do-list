@@ -48,21 +48,26 @@ class App extends React.Component {
             className="big-button" 
             onClick={this.handlePick}>
               Give me something to do</button>
-          <div className="widget-header">
-          <h3>Tasks</h3>
-          <button 
-          className="button button--link"
-          onClick={this.removeAllTasks}
-          >
-            Clear task list
-          </button>
+
+          <div className="widget">
+            <div className="widget-header">
+              <h3 className="widget-header__title">Tasks</h3>
+              <button 
+              className="button button--link"
+              onClick={this.removeAllTasks}
+              >
+                Clear task list
+              </button>
+            </div>
+            <TaskList tasks={this.state.tasks}/>
+            <AddTaskForm addNewTask={this.addNewTask}/>
+
           </div>
-          <TaskList tasks={this.state.tasks}/>
-          <AddTaskForm addNewTask={this.addNewTask}/>
-          <TaskModal 
-            selectedTask={this.state.selectedTask}
-            handleClearSelectedTask={this.handleClearSelectedTask}/>
+
         </div>
+        <TaskModal 
+              selectedTask={this.state.selectedTask}
+              handleClearSelectedTask={this.handleClearSelectedTask}/>
 
       </div>
     );
