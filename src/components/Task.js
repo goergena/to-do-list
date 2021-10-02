@@ -4,9 +4,12 @@ const Task = (props) => {
     const [strike, updateStrike] = useState(false)
     
     return (
-      <li onClick={()=>{updateStrike(!strike)}} className={strike ? "strike task" : "task"}>
-        {props.taskName}
-      </li>
+      <div
+        onClick={()=>{updateStrike(!strike)}} className={strike ? "strike task" : "task"}>
+        <p>
+          {props.count}. {props.taskName}
+        </p>
+      </div>
     )
   }
   

@@ -10,7 +10,12 @@ const TaskList = (props) => {
           </p>}
         <ol >
         {
-          props.tasks.map((task, i) => <Task key={i} taskName={task}/>)
+          props.tasks.map((task, i) => (
+          <Task 
+            key={i} 
+            taskName={task}
+            count={i+1}
+          />))
         }
         </ol>
       </div>
