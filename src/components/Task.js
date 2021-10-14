@@ -6,7 +6,7 @@ const Task = (props) => {
     return (
       <div
         onClick={()=>{updateStrike(!strike)}} className={strike ? "strike task" : "task"}>
-        <p>
+        <p className="task__text">
           {props.count}. {props.taskName}
         </p>
       </div>
