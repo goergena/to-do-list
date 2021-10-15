@@ -1,15 +1,20 @@
 import React from 'react';
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
 
 const TaskModal = (props) => (
-    <Modal
+    <ReactModal
         isOpen={!!props.selectedTask}
         onRequestClose={props.handleClearSelectedTask}
-        contentLabel='Selected Task'>
-        <h3>Selected Task</h3>
-        {props.selectedTask && <p>{props.selectedTask}</p>}
-        <button onClick={props.handleClearSelectedTask}>Okay</button>
-    </Modal>
+        contentLabel='Selected Task'
+        closeTimeoutMS={200}
+        className='modal'
+    >
+        <h3 className='modal__title'>Selected Task</h3>
+        {props.selectedTask && <p className='modal__body'>{props.selectedTask}</p>}
+        <button
+        className='button'
+         onClick={props.handleClearSelectedTask}>Okay</button>
+    </ReactModal>
 )
 
 
